@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.huke.osgi</groupId>
+        <artifactId>felix</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>HelloWorldConsumer</artifactId>
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.huke.osgi</groupId>
+            <artifactId>HelloWorldProvider</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>HelloWorldConsumer-flex</Bundle-SymbolicName>
+                        <Bundle-Activator>com.huke.osgi.felix.activator.HelloWorldActivator</Bundle-Activator>
+                        <!--<Import-Package>com.huke.osgi.felix.service;version="[1.0.0,2.0.0)",org.osgi.framework;version="[1.5,2)"</Import-Package>-->
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
